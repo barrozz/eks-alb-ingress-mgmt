@@ -205,7 +205,7 @@ module "eks" {
       max_size     = 4
       desired_size = 1
 
-      instance_types = ["t3.large"]
+      instance_types = ["t3.micro"]
       capacity_type  = "SPOT"
       labels = {
         Environment = "test"
@@ -275,13 +275,13 @@ module "eks" {
   #   ]
 
   # aws
-  aws_auth_roles = [
-    # {
-    #   rolearn  = "arn:aws:iam::124016692082:role/barroz"
-    #   username = "barroz"
-    #   groups   = ["system:masters"]
-    # },
-  ]
+    # aws_auth_roles = [
+        # {
+        # rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/barroz"
+        # username = "barroz"
+        # groups   = ["system:masters"]
+        # },
+    # ]
 
   # k8s
   aws_auth_users = [
